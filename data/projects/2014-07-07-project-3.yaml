@@ -1,0 +1,21 @@
+modalID: 3
+title: Sarah's Senior Pictures
+subtitle: Lorem ipsum dolor sit amet consectetur.
+date: 2014-07-07
+# img: treehouse.png
+preview: sen-sarah-1-preview.jpg
+client: 
+clientLink: "#"
+category: Website Design
+description: Treehouse is a free PSD web template built by [Mathavan Jaya](//www.behance.net/MathavanJaya). This is bright and spacious design perfect for people or startup companies looking to showcase their apps or other projects. <br><br>You can download the PSD template in this portfolio sample item at [FreebiesXpress.com](freebiesxpress.com/gallery/treehouse-free-psd-web-template/).
+gallery:
+  imgs:
+    - src: sen-sarah-0.jpg
+      thumb: sen-sarah-0-thumb.jpg
+      size: 1360x2048
+    - src: sen-sarah-1.jpg
+      thumb: sen-sarah-1-thumb.jpg
+      size: 2048x1365
+    - src: sen-sarah-2.jpg
+      thumb: sen-sarah-2-thumb.jpg
+      size: 1366x2048
