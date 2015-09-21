@@ -9,6 +9,31 @@
         </div>
         <div class="row">
             {{ range .Site.Data.projects }}
+            {{ if isset . "gallery" }}
+            <div class="col-md-4 col-sm-6 portfolio-item portfolio-item-gallery">
+                <a href="{{ .Site.BaseURL }}img/portfolio/{{ .src }}" class="portfolio-link">
+                    <div class="portfolio-hover">
+                        <div class="portfolio-hover-content">
+                            <i class="fa fa-plus fa-3x"></i>
+                        </div>
+                    </div>
+                    <img src="img/portfolio/{{ .preview }}" class="img-responsive" alt="">
+                </a>
+                <div class="portfolio-caption">
+                    <h4>{{ .title }}</h4>
+                    <p class="text-muted">{{ .category }}</p>
+                </div>
+                <div class="portfolio-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+                {{ range .gallery.imgs }}
+                  <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+                      <a href="{{ .Site.BaseURL }}img/portfolio/{{ .src }}" itemprop="contentUrl" data-size="{{ .size }}">
+                          <img src="{{ .Site.BaseURL }}img/portfolio/{{ .thumb }}" itemprop="thumbnail" alt="{{ .alt }}" />
+                      </a>
+                  </figure>
+                {{ end }}
+                </div>
+            </div>
+            {{ else }}
             <div class="col-md-4 col-sm-6 portfolio-item">
                 <a href="#portfolioModal{{ .modalID }}" class="portfolio-link" data-toggle="modal">
                     <div class="portfolio-hover">
@@ -23,6 +48,7 @@
                     <p class="text-muted">{{ .category }}</p>
                 </div>
             </div>
+            {{ end }}
             {{ end }}
         </div>
     </div>

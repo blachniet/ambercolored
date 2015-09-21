@@ -1,14 +1,12 @@
 modalID: 2
 title: Michael's Senior Pictures
-subtitle: Lorem ipsum dolor sit amet consectetur.
-date: 2014-07-06
 preview: sen-michael-3-preview.jpg
-client:
-clientLink: "#"
-category: Senior Pictures 
-description: "[Startup Framework](//designmodo.com/startup/?u=787) is a website builder for professionals. Startup Framework contains components and complex blocks (PSD+HTML Bootstrap themes and templates) which can easily be integrated into almost any design. All of these components are made in the same style, and can easily be integrated into projects, allowing you to create hundreds of solutions for your future projects. <br><br>You can preview Startup Framework [here](//designmodo.com/startup/?u=787)."
+category: Seniors
 gallery:
   imgs:
+    - src: sen-michael-3.jpg
+      thumb: sen-michael-3-thumb.jpg
+      size: 2048x1366
     - src: sen-michael-0.jpg
       thumb: sen-michael-0-thumb.jpg
       size: 1366x2048
@@ -18,6 +16,3 @@ gallery:
     - src: sen-michael-2.jpg
       thumb: sen-michael-2-thumb.jpg
       size: 1365x2048
-    - src: sen-michael-3.jpg
-      thumb: sen-michael-3-thumb.jpg
-      size: 2048x1366

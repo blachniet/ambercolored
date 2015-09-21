@@ -5,7 +5,7 @@
 <script src="{{ .Site.BaseURL }}js/photoswipe-ui-default.min.js"></script>
 
 <script type="text/javascript">
-var initPhotoSwipeFromDOM = function(gallerySelector) {
+var initPhotoSwipeFromDOM = function(portfolioItemClass) {
 
     // parse slide data (url, title, size ...) from DOM elements
     // (children of gallerySelector)
@@ -62,50 +62,23 @@ var initPhotoSwipeFromDOM = function(gallerySelector) {
         return el && ( fn(el) ? el : closest(el.parentNode, fn) );
     };
 
-    // triggers when user clicks on thumbnail
-    var onThumbnailsClick = function(e) {
-        e = e || window.event;
-        e.preventDefault ? e.preventDefault() : e.returnValue = false;
+    var onPortfolioItemClick = function(e){
+      e = e || window.event;
+      e.preventDefault ? e.preventDefault() : e.returnValue = false;
+      var eTarget = e.target || e.srcElement;
 
-        var eTarget = e.target || e.srcElement;
+      var parent = closest(eTarget, function(el){
+        return (el.classList && el.classList.contains(portfolioItemClass));
+      });
 
-        // find root element of slide
-        var clickedListItem = closest(eTarget, function(el) {
-            return (el.tagName && el.tagName.toUpperCase() === 'FIGURE');
-        });
+      if(!parent){
+        return;
+      }
 
-        if(!clickedListItem) {
-            return;
-        }
-
-        // find index of clicked item by looping through all child nodes
-        // alternatively, you may define index via data- attribute
-        var clickedGallery = clickedListItem.parentNode,
-            childNodes = clickedListItem.parentNode.childNodes,
-            numChildNodes = childNodes.length,
-            nodeIndex = 0,
-            index;
-
-        for (var i = 0; i < numChildNodes; i++) {
-            if(childNodes[i].nodeType !== 1) {
-                continue;
-            }
-
-            if(childNodes[i] === clickedListItem) {
-                index = nodeIndex;
-                break;
-            }
-            nodeIndex++;
-        }
-
-
-
-        if(index >= 0) {
-            // open PhotoSwipe if valid index found
-            openPhotoSwipe( index, clickedGallery );
-        }
-        return false;
-    };
+      var clickedGallery = parent.children[2];
+      openPhotoSwipe(0, clickedGallery);
+      return false;
+    }
 
     // parse picture index and gallery index from URL (#&pid=1&gid=2)
     var photoswipeParseHash = function() {
@@ -148,12 +121,13 @@ var initPhotoSwipeFromDOM = function(gallerySelector) {
 
             // define gallery index (for URL)
             galleryUID: galleryElement.getAttribute('data-pswp-uid'),
+            showHideOpacity: true,
 
             getThumbBoundsFn: function(index) {
                 // See Options -> getThumbBoundsFn section of documentation for more info
-                var thumbnail = items[index].el.getElementsByTagName('img')[0], // find thumbnail
+                var parent = galleryElement.parentNode,
                     pageYScroll = window.pageYOffset || document.documentElement.scrollTop,
-                    rect = thumbnail.getBoundingClientRect();
+                    rect = parent.getBoundingClientRect();
 
                 return {x:rect.left, y:rect.top + pageYScroll, w:rect.width};
             }
@@ -193,21 +167,19 @@ var initPhotoSwipeFromDOM = function(gallerySelector) {
         gallery.init();
     };
 
-    // loop through all gallery elements and bind events
-    var galleryElements = document.querySelectorAll( gallerySelector );
-
-    for(var i = 0, l = galleryElements.length; i < l; i++) {
-        galleryElements[i].setAttribute('data-pswp-uid', i+1);
-        galleryElements[i].onclick = onThumbnailsClick;
+    var portfolioItemElements = document.querySelectorAll("." + portfolioItemClass);
+    for (var i = 0, l = portfolioItemElements.length; i < l; i++){
+      portfolioItemElements[i].children[2].setAttribute('data-pswp-uid', i+1);
+      portfolioItemElements[i].children[0].onclick = onPortfolioItemClick;
     }
 
     // Parse URL and open gallery if it contains #&pid=3&gid=1
     var hashData = photoswipeParseHash();
     if(hashData.pid && hashData.gid) {
-        openPhotoSwipe( hashData.pid ,  galleryElements[ hashData.gid - 1 ], true, true );
+        openPhotoSwipe( hashData.pid ,  portfolioItemElements[hashData.gid - 1].children[2], true, true );
     }
 };
 
 // execute above function
-initPhotoSwipeFromDOM('.my-gallery');
+initPhotoSwipeFromDOM('portfolio-item-gallery');
 </script>

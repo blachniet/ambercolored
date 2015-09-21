@@ -737,3 +737,6 @@ body {
 .portfolio-modal .modal-content img {
   margin-bottom: 0;
 }
+.portfolio-gallery {
+  display: none;
+}

@@ -1,5 +1,7 @@
 {{ "<!-- Portfolio Modals -->" | safeHTML }}
 {{ range .Site.Data.projects }}
+{{ if isset . "gallery" }}
+{{ else }}
 <div class="portfolio-modal modal fade" id="portfolioModal{{ .modalID }}" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-content">
         <div class="close-modal" data-dismiss="modal">
@@ -44,4 +46,5 @@
         </div>
     </div>
 </div>
+{{ end }}
 {{ end }}

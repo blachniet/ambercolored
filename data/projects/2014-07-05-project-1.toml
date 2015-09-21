@@ -1,13 +1,12 @@
 modalID= 1
 title= "John & Christa's Engagement"
-subtitle= ""
-date= "2014-07-05"
 preview= "jc-engage-preview.jpg"
-client= "John & Christa"
-clientLink= "#"
 category= "Engagements"
-description= "Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo! <br><br>**Want these icons in this portfolio item sample?** You can download 60 of them for free, courtesy of [RoundIcons.com](//getdpd.com/cart/hoplink/18076?referrer=bvbo4kax5k8ogc), or you can purchase the 1500 icon set [here](//getdpd.com/cart/hoplink/18076?referrer=bvbo4kax5k8ogc)."
 [gallery]
+  [[gallery.imgs]]
+    src = "jc-engage-2.jpg"
+    thumb = "jc-engage-2-thumb.jpg"
+    size = "2048x1365"
   [[gallery.imgs]]
     src = "jc-engage-0.jpg"
     thumb = "jc-engage-0-thumb.jpg"
@@ -15,8 +14,4 @@ description= "Use this area to describe your project. Lorem ipsum dolor sit amet
   [[gallery.imgs]]
     src = "jc-engage-1.jpg"
     thumb = "jc-engage-1-thumb.jpg"
-    size = "2048x1365"
-  [[gallery.imgs]]
-    src = "jc-engage-2.jpg"
-    thumb = "jc-engage-2-thumb.jpg"
     size = "2048x1365"
