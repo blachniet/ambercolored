@@ -1,5 +1,5 @@
 # Site settings
-baseurl = "http://replace-this-with-your-hugo-site.com/"
+baseurl = "http://blachniet.github.io/ambercolored/"
 languageCode = "en-us"
 title = "Amber Colored"
 theme = "hugo-agency-theme"
