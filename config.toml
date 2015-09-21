@@ -60,17 +60,17 @@ theme = "hugo-agency-theme"
 		[[params.services.list]]
 			icon = "fa-graduation-cap"
 			title = "Seniors"
-			description = ""
+			description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec placerat maximus eros congue eleifend. Donec sed tellus commodo, pellentesque dolor eu, fermentum nunc. Fusce lobortis porttitor accumsan. Sed facilisis mauris."
 
 		[[params.services.list]]
 			icon = "fa-glass"
 			title = "Weddings"
-			description = ""
+			description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut convallis tortor venenatis venenatis auctor. Phasellus sit amet purus in tortor fermentum imperdiet. Phasellus tempor mauris ac urna lobortis imperdiet. Nullam."
 
 		[[params.services.list]]
 			icon = "fa-birthday-cake"
 			title = "Special Events"
-			description = ""
+			description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quis odio in elit dapibus lacinia. Aliquam ut tortor in purus lacinia hendrerit. Aenean ac posuere eros. Vestibulum gravida gravida orci."
 
 
 	# Portfolio section
