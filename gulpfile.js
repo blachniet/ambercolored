@@ -1,6 +1,7 @@
 var less = require('gulp-less'),
 		path = require('path'),
-		gulp = require('gulp');
+		gulp = require('gulp'),
+		imagemin = require('gulp-imagemin');
 
 gulp.task('less', function(){
 	return gulp.src('./src/less/ac.less')
@@ -10,8 +11,17 @@ gulp.task('less', function(){
 		.pipe(gulp.dest('./static/css'));
 });
 
-gulp.task('watch', function(){
-	gulp.watch('./src/less/*.less', ['less']).on('change', function(event){
-		console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
-	});
+gulp.task('imagemin', function(){
+	return gulp.src('./src/img/**/*.jpg')
+		.pipe(imagemin({
+			progressive: true,
+		}))
+		.pipe(gulp.dest('./static/img'))
 });
+
+gulp.task('watch', function(){
+	gulp.watch('./src/img/**/*.jpg', ['imagemin']);
+	gulp.watch('./src/less/*.less', ['less']);
+});
+
+gulp.task('default', ['less', 'imagemin']);
