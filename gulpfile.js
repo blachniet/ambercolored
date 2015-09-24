@@ -3,15 +3,15 @@ var less = require('gulp-less'),
 		gulp = require('gulp');
 
 gulp.task('less', function(){
-	return gulp.src('./static/less/ac.less')
+	return gulp.src('./src/less/ac.less')
 		.pipe(less({
-			paths: [ path.join(__dirname, 'static', 'less') ]
+			paths: [ path.join(__dirname, 'src', 'less') ]
 		}))
 		.pipe(gulp.dest('./static/css'));
 });
 
 gulp.task('watch', function(){
-	gulp.watch('./static/less/*.less', ['less']).on('change', function(event){
+	gulp.watch('./src/less/*.less', ['less']).on('change', function(event){
 		console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
 	});
 });
