@@ -1,7 +1,7 @@
 var less = require('gulp-less'),
 		path = require('path'),
 		gulp = require('gulp'),
-		imagemin = require('gulp-imagemin');
+		imageminMozjpeg = require('imagemin-mozjpeg');
 
 gulp.task('less', function(){
 	return gulp.src('./src/less/ac.less')
@@ -13,9 +13,7 @@ gulp.task('less', function(){
 
 gulp.task('imagemin', function(){
 	return gulp.src('./src/img/**/*.jpg')
-		.pipe(imagemin({
-			progressive: true,
-		}))
+		.pipe(imageminMozjpeg({progressive: true})())
 		.pipe(gulp.dest('./static/img'))
 });
 
