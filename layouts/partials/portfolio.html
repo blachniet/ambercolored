@@ -9,7 +9,22 @@
         </div>
         <div class="row">
             {{ range .Site.Data.projects }}
-            {{ if isset . "gallery" }}
+            {{ if isset . "externalLink" }}
+            <div class="col-md-4 col-sm-6 portfolio-item portfoli-item-link">
+                <a href="{{ .externalLink }}" class="portfolio-link">
+                    <div class="portfolio-hover">
+                        <div class="portfolio-hover-content">
+                            <i class="fa fa-plus fa-3x"></i>
+                        </div>
+                    </div>
+                    <img src="img/portfolio/{{ .preview }}" class="img-responsive" alt="">
+                </a>
+                <div class="portfolio-caption">
+                    <h4>{{ .title }}</h4>
+                    <p class="text-muted">{{ .category }}</p>
+                </div>
+            </div>
+            {{ else if isset . "gallery" }}
             <div class="col-md-4 col-sm-6 portfolio-item portfolio-item-gallery">
                 <a href="{{ .Site.BaseURL }}img/portfolio/{{ .src }}" class="portfolio-link">
                     <div class="portfolio-hover">
