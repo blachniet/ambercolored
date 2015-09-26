@@ -740,3 +740,27 @@ body {
 .portfolio-gallery {
   display: none;
 }
+#contactSuccessAlert {
+  color: #f5851f;
+  background-color: #f4f4f4;
+  border-color: #eee;
+  display: none;
+}
+#contactSuccessAlert h1 {
+  font-size: 5em;
+}
+#contactSuccessAlert hr {
+  background-color: #f5851f;
+  height: 1px;
+  border: none;
+  width: 50%;
+}
+#contactSuccessAlert p {
+  font-size: 1.5em;
+}
+#contactSendingAlert {
+  text-align: center;
+  font-size: 7em;
+  color: #f5851f;
+  display: none;
+}
